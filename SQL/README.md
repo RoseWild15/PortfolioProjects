@@ -18,3 +18,5 @@ Here you'll find my Data Cleaning & Exploratory Data Analysis projects that I pe
 • The industry most affected by layoffs was the Consumer industry with 45,182.
 
 • 2023 had the most layoffs (125,677).
+
+• 116 companies filed for bankruptcy between 2020 - 2023. 
