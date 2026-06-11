@@ -16,3 +16,5 @@ Here you'll find my Data Cleaning & Exploratory Data Analysis projects that I pe
 • The company with the most layoffs was Amazon with 18,150. 
 
 • The industry most affected by layoffs was Consumer industry with 45,182.
+
+• 2023 had the most layoffs (125,677).
