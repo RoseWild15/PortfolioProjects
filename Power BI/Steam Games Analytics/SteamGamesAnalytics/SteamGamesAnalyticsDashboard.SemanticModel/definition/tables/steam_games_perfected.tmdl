@@ -1,0 +1,311 @@
+table steam_games_perfected
+	lineageTag: 20d32ce2-08f2-4d5b-95fd-11f99e9c6ce2
+
+	measure 'Total Games' = COUNTROWS(steam_games_perfected)
+		formatString: 0
+		lineageTag: 58f6b9d4-8f5b-487a-a667-b7df964d4a1d
+
+	column AppID
+		dataType: int64
+		formatString: 0
+		lineageTag: d126009a-21cb-4b12-8b2f-11a7d83b6ffc
+		summarizeBy: none
+		sourceColumn: AppID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Name
+		dataType: string
+		lineageTag: e0638ad0-761b-412e-b4b8-b5b582c862e3
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Release date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 98523e6a-ec65-4412-8da0-08b9efdb2fc0
+		summarizeBy: none
+		sourceColumn: Release date
+
+		variation Variation
+			isDefault
+			relationship: 2075dd01-0be4-4f98-b5be-19414321b206
+			defaultHierarchy: LocalDateTable_fc21416c-58c7-4426-9b74-b8675e017f07.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Estimated owners'
+		dataType: string
+		lineageTag: 25235b45-1d0a-4460-b50f-c4f7b2cbccf7
+		summarizeBy: none
+		sourceColumn: Estimated owners
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Peak CCU'
+		dataType: int64
+		formatString: #,0
+		lineageTag: e20c9975-e8d3-446a-be4a-4cc1329324af
+		summarizeBy: sum
+		sourceColumn: Peak CCU
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Required age'
+		dataType: int64
+		formatString: 0
+		lineageTag: 62d813d5-26ed-42d0-a037-4bc50ccd0204
+		summarizeBy: sum
+		sourceColumn: Required age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a5481f0c-bf12-4bea-910a-4d03095fc520
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discount
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e17734e-e17c-43e6-bb09-ef9f2011bbc9
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'DLC count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e105a27-e7b8-412f-9e06-13a9de135669
+		summarizeBy: sum
+		sourceColumn: DLC count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Windows
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 64ad3ee3-b226-419d-87f3-16de0ffb794b
+		summarizeBy: none
+		sourceColumn: Windows
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mac
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2193c794-845b-4548-8a12-11f63ea5fea8
+		summarizeBy: none
+		sourceColumn: Mac
+
+		annotation SummarizationSetBy = Automatic
+
+	column Linux
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0bbb4ede-3c8e-4c60-94cd-c53080561217
+		summarizeBy: none
+		sourceColumn: Linux
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Metacritic score'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e65cb4d-4331-49a6-a9ad-1b7eac110978
+		summarizeBy: sum
+		sourceColumn: Metacritic score
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'User score'
+		dataType: int64
+		formatString: 0
+		lineageTag: ac22e187-ddb7-4d63-97ff-77bc0e9e3f8d
+		summarizeBy: sum
+		sourceColumn: User score
+
+		annotation SummarizationSetBy = Automatic
+
+	column Positive
+		dataType: int64
+		formatString: 0
+		lineageTag: bdfa8e95-d901-4a31-9d7f-d800f76b51d3
+		summarizeBy: sum
+		sourceColumn: Positive
+
+		annotation SummarizationSetBy = Automatic
+
+	column Negative
+		dataType: int64
+		formatString: 0
+		lineageTag: 366ab284-c3fb-44ba-8d46-533686048a6c
+		summarizeBy: sum
+		sourceColumn: Negative
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Score rank'
+		dataType: string
+		lineageTag: eb5cb5f6-f868-4f53-aaf9-d3fee00d2117
+		summarizeBy: none
+		sourceColumn: Score rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column Achievements
+		dataType: int64
+		formatString: 0
+		lineageTag: ceff0542-f9ab-4dc7-94b6-f3a0319dc257
+		summarizeBy: sum
+		sourceColumn: Achievements
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recommendations
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dbb2eca-dd50-4534-a9dc-8c27bab5c6b0
+		summarizeBy: sum
+		sourceColumn: Recommendations
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Average playtime forever'
+		dataType: int64
+		formatString: 0
+		lineageTag: b689803e-2a5e-4411-9410-ab58699d02d8
+		summarizeBy: sum
+		sourceColumn: Average playtime forever
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Average playtime two weeks'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a8a9da4-2658-4c2f-9eea-e967d0821b1b
+		summarizeBy: sum
+		sourceColumn: Average playtime two weeks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Median playtime forever'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ef7fea1-a454-4c9e-8fc0-e73094e111f1
+		summarizeBy: sum
+		sourceColumn: Median playtime forever
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Median playtime two weeks'
+		dataType: int64
+		formatString: 0
+		lineageTag: a10647ad-4dc4-4a94-bcba-79ab6ef54518
+		summarizeBy: sum
+		sourceColumn: Median playtime two weeks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Developers
+		dataType: string
+		lineageTag: 3b30e038-d4c4-4d4f-b49c-0b7c3cf8d2c2
+		summarizeBy: none
+		sourceColumn: Developers
+
+		annotation SummarizationSetBy = Automatic
+
+	column Publishers
+		dataType: string
+		lineageTag: 9e0c9b4e-c146-4a67-886e-49bc73f39a93
+		summarizeBy: none
+		sourceColumn: Publishers
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categories
+		dataType: string
+		lineageTag: ef92ba91-3bd2-442e-aa95-ea2b04afe234
+		summarizeBy: none
+		sourceColumn: Categories
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genres
+		dataType: string
+		lineageTag: 401892cb-4f26-4c07-89a2-48431c97f7ef
+		summarizeBy: none
+		sourceColumn: Genres
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tags
+		dataType: string
+		lineageTag: 16fed4a3-545f-43cb-94d7-9ddff85466f1
+		summarizeBy: none
+		sourceColumn: Tags
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group' =
+			
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(steam_games_perfected[Price]) || steam_games_perfected[Price] = 0, "Free",
+			    steam_games_perfected[Price] > 0 && steam_games_perfected[Price] < 10, "$0.01 - $9.99",
+			    steam_games_perfected[Price] >= 10 && steam_games_perfected[Price] < 20, "$10.00 - $19.99",
+			    steam_games_perfected[Price] >= 20 && steam_games_perfected[Price] < 50, "$20.00 - $49.99",
+			    "$50.00+"
+			)
+		lineageTag: 5c89bbdb-5896-40c6-abc3-df53274c5e19
+		summarizeBy: none
+		sortByColumn: 'Price Group Sort'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price Group Sort' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    ISBLANK(steam_games_perfected[Price]) || steam_games_perfected[Price] = 0, 1,
+			    steam_games_perfected[Price] > 0 && steam_games_perfected[Price] < 10, 2,
+			    steam_games_perfected[Price] >= 10 && steam_games_perfected[Price] < 20, 3,
+			    steam_games_perfected[Price] >= 20 && steam_games_perfected[Price] < 50, 4,
+			    5
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 3bef98b6-17ec-4c00-94b3-dd533de4fe61
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition steam_games_perfected = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents("D:\Data Analyst Stuff\Python\steam_games_perfected.csv"), [Delimiter = ",", Columns = 28, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"AppID", Int64.Type}, {"Name", type text}, {"Release date", type date}, {"Estimated owners", type text}, {"Peak CCU", Int64.Type}, {"Required age", Int64.Type}, {"Price", type number}, {"Discount", Int64.Type}, {"DLC count", Int64.Type}, {"Windows", type logical}, {"Mac", type logical}, {"Linux", type logical}, {"Metacritic score", Int64.Type}, {"User score", Int64.Type}, {"Positive", Int64.Type}, {"Negative", Int64.Type}, {"Score rank", type text}, {"Achievements", Int64.Type}, {"Recommendations", Int64.Type}, {"Average playtime forever", Int64.Type}, {"Average playtime two weeks", Int64.Type}, {"Median playtime forever", Int64.Type}, {"Median playtime two weeks", Int64.Type}, {"Developers", type text}, {"Publishers", type text}, {"Categories", type text}, {"Genres", type text}, {"Tags", type text}}, "en-US"),
+				    #"Removed Duplicates" = Table.Distinct(#"Changed column type", {"AppID"})
+				in
+				  #"Removed Duplicates"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
