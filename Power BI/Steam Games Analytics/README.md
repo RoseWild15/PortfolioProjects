@@ -1,6 +1,6 @@
 ![Steam Games Analytics Dashboard](SteamGamesAnalyticsDashboard.png)
 
-## Steam Games Analytics Dashboard
+## Steam Games Analytics Dashboard V1 - WIP (will edit this soon) 
 
 
 
