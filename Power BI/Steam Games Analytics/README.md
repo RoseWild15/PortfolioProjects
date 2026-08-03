@@ -25,8 +25,6 @@ Problem #2: Raw game data contains multiple comma-separated genres per title (e.
 
 Solution: Created a dedicated game_genres bridge table in Power Query by splitting genre delimiters into individual rows. Established a bidirectional filter relationship across AppID between the master table and bridge table, enabling accurate cross-filtering without distorting game counts.
 
-## Project Goal
-
 ## Key Insights
 
 • Indie games lead the Steam store catalog by a massive margin (~80k titles), followed by Casual and Action.
