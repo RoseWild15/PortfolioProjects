@@ -39,3 +39,4 @@ Solution: Created a dedicated game_genres bridge table in Power Query by splitti
 
 As titled this dashboard is currently V1, in its current state is it finished and presents an executive summary regarding how big Steam is, dominating genres, average pricing etc however I believe there is much more data for me to dive into here as such I plan to make either a bigger dashboard or multiple Power BI reports aka multiple dashboards.
 
+Something I'd like to try if possible is potentially recreating this project but entirely through Python utiizing the Steam API instead as to generate real-time charts/graphs instead of a snapshot in time as the Peak CCU of games fluctuates as and when games update or new games release.  
