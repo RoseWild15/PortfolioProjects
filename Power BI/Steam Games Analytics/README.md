@@ -1,6 +1,6 @@
 ![Steam Games Analytics Dashboard](SteamGamesAnalyticsDashboard.png)
 
-## Steam Games Analytics Dashboard V1 - (will edit this soon) 
+## Steam Games Analytics Dashboard V1 
 
 A comprehensive Power BI data analytics dashboard analyzing over 125,000 games on Steam. This project examines catalog growth, market price distributions, top-performing titles by concurrent player count and genre-level market representation. (Data source: https://www.kaggle.com/datasets/fronkongames/steam-games-dataset/data) 
 
@@ -19,7 +19,7 @@ A comprehensive Power BI data analytics dashboard analyzing over 125,000 games o
 
 Problem #1: Upon loading the data into Power Query it was obvious the data had shifted across columns such as "name" being under "release date" and so on.
 
-Solution: I booted up Jupyter Notebook, imported Pandas and read in the CSV file. It became immediately clear that the problem was a header titled "DiscountDLC Count" which was supposed to be 2 seperate headers, so I used Python to correct the headers as well as drop various headers that were of no use to me such as "Screenshots" header that contained URL links etc. 
+Solution: I booted up Jupyter Notebook, imported Pandas and read in the CSV file. It became immediately clear that the problem was a header titled "DiscountDLC Count" which was supposed to be 2 seperate headers, so I used Python to correct the headers as well as drop various headers that were of no use to me such as "Screenshots" header that contained URL links etc I then exported the cleaned version and loaded it into Power BI. 
 
 Problem #2: Raw game data contains multiple comma-separated genres per title (e.g., "Action, Indie, RPG"), which whilst normal for a game to be considered multiple genres it made standard visual filtering inaccurate and resulted in duplicate counts or unreadable category grouping. 
 
