@@ -33,7 +33,7 @@ Solution: Created a dedicated game_genres bridge table in Power Query by splitti
 
 • Steam saw exponential growth in total game releases starting around 2013–2015, accelerating into a massive uptick leading into 2025.
 
-•  Counter-Strike 2 and Dota 2 remain heavyweights in peak concurrent player counts, commanding over 1M and 620K peak concurrent players respectively.
+• Counter-Strike 2 and Dota 2 dominate the Steam charts in peak concurrent player counts with over 1M and 620K peak concurrent players respectively.
 
 ## Future Plans
 
