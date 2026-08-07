@@ -1,3 +1,5 @@
+![Overview](assets/TelecomCustomerChurnDashboard.gif)
+
 ### Project Overview
 
 This project has a focus on diagnostic & prescriptive analysis, I specifically chose this telecommunication provider dataset so I could not only perform exploratory data analysis and present my findings but also analyse problems and offer strategic solutions backed by data.
