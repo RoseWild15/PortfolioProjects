@@ -34,7 +34,7 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 ### Phase 3: Power BI Interactive Dashboard
 
-Data Import & Modelling: Imported the cleaned CSV into Power BI and established key DAX measures for dynamic reporting ([Churn Rate], [Avg Monthly Charge], [Total Customers], and [Churned Customers]).
+Data Import & Modelling: Imported the cleaned CSV into Power BI and established key DAX measures for dynamic reporting (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, and `Churned Customers`).
 
 Custom UI & Modern Dark Theme Layout: Designed a high-contrast dark theme layout utilising custom container cards (#121212 background with rounded borders and subtle drop shadows) over a charcoal canvas (#0A0A0B) for an intuitive modern app-like UI.
 
