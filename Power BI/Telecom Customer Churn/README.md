@@ -34,22 +34,22 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 ### Phase 3: Power BI Interactive Dashboard
 
-Data Import & Modelling: Imported the cleaned CSV into Power BI and established key DAX measures for dynamic reporting (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, and `Churned Customers`).
+**Data Import & Modelling:** Imported the cleaned CSV into Power BI and established key DAX measures for dynamic reporting (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, and `Churned Customers`).
 
-Custom UI & Modern Dark Theme Layout: Designed a high-contrast dark theme layout utilising custom container cards (#121212 background with rounded borders and subtle drop shadows) over a charcoal canvas (#0A0A0B) for an intuitive modern app-like UI.
+**Custom UI & Modern Dark Theme Layout:** Designed a high-contrast dark theme layout utilising custom container cards (#121212 background with rounded borders and subtle drop shadows) over a charcoal canvas (#0A0A0B) for an intuitive modern app-like UI.
 
 **Multi-Page Dashboard Breakdown:**
 
 **Page 1: Executive Overview**
-  • Displays main numbers at a glance (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, `Churned Customers`).
-  • Breaks down churn across **Contract Types** and **Monthly Charge Ranges**.
-  • Tracks how churn risk drops over time using a **Tenure (Months)** line graph.
+• Displays main numbers at a glance (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, `Churned Customers`).
+• Breaks down churn across **Contract Types** and **Monthly Charge Ranges**.
+• Tracks how churn risk drops over time using a **Tenure (Months)** line graph.
 
 **Page 2: Service & Demographic Diagnostics**
-  • Focuses on key drivers, comparing Senior Citizen churn against Non-Seniors.
-  • Highlights Fiber Optic pricing impact ($91.50 avg bill) and how Tech Support helps keep customers.
-  • Features interactive filter buttons for `Contract` type and `Payment Method`.
+• Focuses on key drivers, comparing Senior Citizen churn against Non-Seniors.
+• Highlights Fiber Optic pricing impact ($91.50 avg bill) and how Tech Support helps keep customers.
+• Features interactive filter buttons for `Contract` type and `Payment Method`.
 
 **Page 3: Add-Ons & Strategic Recommendations**
-  • Explores how **Online Security**, **Streaming Add-Ons**, and **Phone Service** impact customer loyalty.
-  • Includes an **Executive Action Plan** box summarizing 4 clear data-backed retention strategies.
+• Explores how **Online Security**, **Streaming Add-Ons**, and **Phone Service** impact customer loyalty.
+• Includes an **Executive Action Plan** box summarizing 4 clear data-backed retention strategies.
