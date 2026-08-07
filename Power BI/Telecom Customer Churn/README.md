@@ -4,7 +4,7 @@ This project has a focus on diagnostic & prescriptive analysis, I specifically c
 
 I began with data cleaning, followed by exploratory data analysis done in Python using Pandas and then lastly exported the cleaned csv to use in Power BI to create visualisations. 
 
-[View Data Cleaning & EDA Code Here](churn_analysis.ipynb)
+[View Data Cleaning & EDA Code Here](TelecomCustomerChurnCleaning&EDA.ipynb)
 
 *Data Source: https://www.kaggle.com/datasets/blastchar/telco-customer-churn/data*
 
