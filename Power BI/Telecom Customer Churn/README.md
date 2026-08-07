@@ -62,7 +62,7 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 **Page 3: Add-Ons & Strategic Recommendations**
 
-![Page3](assets/page3addonsandrecommendations.png)
+![Page3](assets/page3_addonsandrecommendations.png)
 
 • Explores how **Online Security**, **Streaming Add-Ons**, and **Phone Service** impact customer loyalty.
 
