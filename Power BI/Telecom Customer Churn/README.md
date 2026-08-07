@@ -48,6 +48,8 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 • Tracks how churn risk drops over time using a **Tenure (Months)** line graph.
 
+![Executive Overview](assets/page1executive_summary.png)
+
 **Page 2: Service & Demographic Diagnostics**
 
 • Focuses on key drivers, comparing Senior Citizen churn against Non-Seniors.
