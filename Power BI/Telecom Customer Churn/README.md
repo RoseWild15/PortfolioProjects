@@ -42,13 +42,14 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 **Page 1: Executive Overview**
 
+![Executive Overview](assets/page1executive_summary.png)
+
 • Displays main numbers at a glance (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, `Churned Customers`).
 
 • Breaks down churn across **Contract Types** and **Monthly Charge Ranges**.
 
 • Tracks how churn risk drops over time using a **Tenure (Months)** line graph.
 
-![Executive Overview](assets/page1executive_summary.png)
 
 **Page 2: Service & Demographic Diagnostics**
 
