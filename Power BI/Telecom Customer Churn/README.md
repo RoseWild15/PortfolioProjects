@@ -42,7 +42,7 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 **Page 1: Executive Overview**
 
-![Executive Overview](assets/page1executive_summary.png)
+![Page1](assets/page1executive_summary.png)
 
 • Displays main numbers at a glance (`Churn Rate`, `Avg Monthly Charge`, `Total Customers`, `Churned Customers`).
 
@@ -52,7 +52,7 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 
 **Page 2: Service & Demographic Diagnostics**
 
-![Service & Demographic Diagnostics Page](assets/page2diagnostics.png)
+![Page2](assets/page2diagnostics.png)
 
 • Focuses on key drivers, comparing Senior Citizen churn against Non-Seniors.
 
@@ -61,6 +61,8 @@ I began with data cleaning, followed by exploratory data analysis done in Python
 • Features interactive filter buttons for `Contract` type and `Payment Method`.
 
 **Page 3: Add-Ons & Strategic Recommendations**
+
+![Page3](assets/page3addonsandrecommendations.png)
 
 • Explores how **Online Security**, **Streaming Add-Ons**, and **Phone Service** impact customer loyalty.
 
