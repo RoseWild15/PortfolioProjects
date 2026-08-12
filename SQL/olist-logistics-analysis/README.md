@@ -22,9 +22,9 @@ This project analyses **99,000+ orders** from Brazilian e-commerce platform **Ol
 
 ### 3. Regional Vulnerabilities
 Remote northern states experience extreme carrier transit delays on late orders:
-* **Amapá (AP):** ~84.3 days transit time
-* **Roraima (RR):** ~66.0 days transit time
-* **Amazonas (AM):** ~54.8 days transit time
+* **Amapá (AP):** 84.3 days transit time
+* **Roraima (RR):** 66.0 days transit time
+* **Amazonas (AM):** 54.8 days transit time
 
 ### 4. High-Risk Product Categories (Freight Spend)
 Freight expenditure on delayed orders is driven by a combination of high order volume and bulky items:
