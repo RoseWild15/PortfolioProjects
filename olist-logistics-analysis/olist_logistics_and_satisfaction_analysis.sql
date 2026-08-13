@@ -1,4 +1,4 @@
--- Brazillian E-Commerce Olist: Logistics & Customer Satisfaction Analysis
+-- Brazilian E-Commerce Olist: Logistics & Customer Satisfaction Analysis
 -- Project Overview/Goals: Identify delivery delays, root causes, regional impact & revenue risk
 
 /*--------------------------------------------------
@@ -15,7 +15,7 @@ CREATE INDEX idx_items_order_id ON olist_order_items_dataset(order_id(32));
 CREATE INDEX idx_items_product_id ON olist_order_items_dataset(product_id(32));
 
 /*--------------------------------------------------
--- Data Validation & Preperation
+-- Data Validation & Preparation
 --------------------------------------------------*/
 
 -- Check customer data for duplicate customer IDs
@@ -64,7 +64,7 @@ FROM olist_orders_dataset;
 --------------------------------------------------*/
 
 -- Q1: Does delivery status impact customer review scores?
--- Insight: Late deliveries reduce average review scores from 4.24 down to 2.50.
+-- Insight: Late deliveries are associated with a substantial decline in average review scores from 4.24 for on-time/early deliveries to 2.50 for late deliveries.
 SELECT 
 CASE
 	WHEN orders.order_delivered_customer_date > orders.order_estimated_delivery_date THEN 'Late'
@@ -89,7 +89,7 @@ WHERE order_delivered_customer_date > order_estimated_delivery_date
  
  
 -- Q3: Which customer states experience the worst carrier delays?
--- Insight: Remote northern states (AP, RR, AM, AC, PA) suffer transit delays of 42–84 day. 
+-- Insight: Remote northern states (AP, RR, AM, AC, PA) experience the longest average carrier transit times ranging from approximately 42–84 days.
 SELECT customer_state, COUNT(ord.order_id) AS total_orders, ROUND(AVG(DATEDIFF(order_delivered_customer_date, order_delivered_carrier_date)), 1) AS avg_carrier_days
 FROM olist_orders_dataset as ord
 INNER JOIN olist_customers_dataset as cus
@@ -101,8 +101,8 @@ ORDER BY avg_carrier_days DESC
 LIMIT 5;
 
 
--- Q4: Which product categories burn the most freight money on delayed orders?
--- Insight: High-volume categories (bed_bath_table, health_beauty) and bulky items (furniture_decor) represent the highest freight expenditure on late orders.
+-- Q4: Which product categories incur the highest freight costs on delayed orders?
+-- Insight: High-volume categories such as bed_bath_table and health_beauty, alongside bulky categories such as furniture_decor, account for the highest freight expenditure among delayed orders.
 WITH late_orders AS (
 SELECT order_id
 FROM olist_orders_dataset
