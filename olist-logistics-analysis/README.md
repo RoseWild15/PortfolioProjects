@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project analyses **99,000+ orders** from Brazilian e-commerce platform **Olist** to investigate the root causes of delivery delays, quantify their financial and regional impacts and evaluates how fulfilment performance directly influences customer retention and review scores.
+This project analyses **100k orders** from Brazilian e-commerce platform **Olist** to investigate the root causes of delivery delays, quantify their financial and regional impacts and evaluates how fulfilment performance directly influences customer retention and review scores.
 
 [View SQL Script Here](olist_logistics_and_satisfaction_analysis.sql)
 
