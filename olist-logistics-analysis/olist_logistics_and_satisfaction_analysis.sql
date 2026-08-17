@@ -132,3 +132,33 @@ WHERE order_delivered_customer_date > order_estimated_delivery_date
   AND order_status = 'delivered'
 GROUP BY rev.review_score
 ORDER BY rev.review_score ASC;
+
+-- Q6: How long do delivery times affect repeat purchases? 
+-- Insight: Customers whose first order arrived on-time converted to repeat buyers at 3.04%, compared to just 2.50% for those who experienced a late first delivery representing an 18% relative drop in customer retention due to initial fulfillment failures.
+
+WITH customer_first_orders AS (
+SELECT cus.customer_unique_id, ord.order_id, ord.order_purchase_timestamp,
+CASE
+	WHEN ord.order_delivered_customer_date > ord.order_estimated_delivery_date THEN 'Late'
+	ELSE 'On-Time / Early'
+END AS first_order_status,
+ROW_NUMBER() OVER(PARTITION BY cus.customer_unique_id ORDER BY ord.order_purchase_timestamp ASC) AS order_rank 
+FROM olist_orders_dataset as ord													
+INNER JOIN olist_customers_dataset as cus
+	ON ord.customer_id = cus.customer_id
+WHERE order_delivered_customer_date IS NOT NULL
+AND order_status = 'delivered'),
+customer_order_counts AS (
+    SELECT cus.customer_unique_id, COUNT(ord.order_id) AS total_orders
+    FROM olist_orders_dataset as ord
+    INNER JOIN olist_customers_dataset as cus 
+        ON ord.customer_id = cus.customer_id
+    WHERE ord.order_status = 'delivered'
+    GROUP BY cus.customer_unique_id
+)
+SELECT fo.first_order_status, COUNT(fo.customer_unique_id) AS total_customers, SUM(CASE WHEN co.total_orders > 1 THEN 1 ELSE 0 END) AS repeat_customers, ROUND(SUM(CASE WHEN co.total_orders > 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(fo.customer_unique_id), 2) AS repeat_purchase_rate_pct
+FROM customer_first_orders as fo
+INNER JOIN customer_order_counts as co
+    ON fo.customer_unique_id = co.customer_unique_id
+WHERE fo.order_rank = 1
+GROUP BY fo.first_order_status;
