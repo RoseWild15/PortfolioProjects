@@ -14,6 +14,7 @@ This project analyses **100k orders** from Brazilian e-commerce platform **Olist
 * **On-Time / Early Orders:** Average Review Score = **4.24 / 5.0**
 * **Late Orders:** Average Review Score = **2.50 / 5.0** (a drop of 1.74 points)
 * **Score Distribution:** **50.0%** of all late delivery reviews are **1-star** and nearly **60%** are negative (1 or 2 stars).
+* **Customer Loyalty:** Experiencing an initial delivery delay causes an **18%** relative drop in customer loyalty.
 
 ### 2. Root Cause: Carrier Transit vs. Seller Dispatch
 * **Seller Dispatch Time:** Averages **5.8 days** from purchase.
