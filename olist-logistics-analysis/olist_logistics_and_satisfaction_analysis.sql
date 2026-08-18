@@ -1,4 +1,4 @@
--- Brazilian E-Commerce Olist: Logistics & Customer Satisfaction Analysis
+-- Brazillian E-Commerce Olist: Logistics & Customer Satisfaction Analysis
 -- Project Overview/Goals: Identify delivery delays, root causes, regional impact & revenue risk
 
 /*--------------------------------------------------
@@ -15,7 +15,7 @@ CREATE INDEX idx_items_order_id ON olist_order_items_dataset(order_id(32));
 CREATE INDEX idx_items_product_id ON olist_order_items_dataset(product_id(32));
 
 /*--------------------------------------------------
--- Data Validation & Preparation
+-- Data Validation & Preperation
 --------------------------------------------------*/
 
 -- Check customer data for duplicate customer IDs
@@ -64,7 +64,7 @@ FROM olist_orders_dataset;
 --------------------------------------------------*/
 
 -- Q1: Does delivery status impact customer review scores?
--- Insight: Late deliveries are associated with a substantial decline in average review scores from 4.24 for on-time/early deliveries to 2.50 for late deliveries.
+-- Insight: Late deliveries reduce average review scores from 4.24 down to 2.50.
 SELECT 
 CASE
 	WHEN orders.order_delivered_customer_date > orders.order_estimated_delivery_date THEN 'Late'
@@ -82,15 +82,19 @@ GROUP BY delivery_status;
 
 -- Q2: What is the primary bottleneck for late orders? (Seller vs. Carrier)
 -- Insight: On average sellers take roughly 5.8 days to dispatch, whilst carriers take 25.7 days in transit.
-SELECT ROUND(AVG(DATEDIFF(order_delivered_carrier_date, order_purchase_timestamp)), 1) AS avg_seller_days, ROUND(AVG(DATEDIFF(order_delivered_customer_date, order_delivered_carrier_date)), 1) AS avg_carrier_days   
+SELECT 
+	ROUND(AVG(DATEDIFF(order_delivered_carrier_date, order_purchase_timestamp)), 1) AS avg_seller_days, 
+    ROUND(AVG(DATEDIFF(order_delivered_customer_date, order_delivered_carrier_date)), 1) AS avg_carrier_days   
 FROM olist_orders_dataset
 WHERE order_delivered_customer_date > order_estimated_delivery_date
   AND order_status = 'delivered';
  
  
 -- Q3: Which customer states experience the worst carrier delays?
--- Insight: Remote northern states (AP, RR, AM, AC, PA) experience the longest average carrier transit times ranging from approximately 42–84 days.
-SELECT customer_state, COUNT(ord.order_id) AS total_orders, ROUND(AVG(DATEDIFF(order_delivered_customer_date, order_delivered_carrier_date)), 1) AS avg_carrier_days
+-- Insight: Remote northern states (AP, RR, AM, AC, PA) suffer transit delays of 42–84 day. 
+SELECT customer_state, 
+	COUNT(ord.order_id) AS total_orders, 
+    ROUND(AVG(DATEDIFF(order_delivered_customer_date, order_delivered_carrier_date)), 1) AS avg_carrier_days
 FROM olist_orders_dataset as ord
 INNER JOIN olist_customers_dataset as cus
 	ON ord.customer_id = cus.customer_id
@@ -101,15 +105,17 @@ ORDER BY avg_carrier_days DESC
 LIMIT 5;
 
 
--- Q4: Which product categories incur the highest freight costs on delayed orders?
--- Insight: High-volume categories such as bed_bath_table and health_beauty, alongside bulky categories such as furniture_decor, account for the highest freight expenditure among delayed orders.
+-- Q4: Which product categories burn the most freight money on delayed orders?
+-- Insight: High-volume categories (bed_bath_table, health_beauty) and bulky items (furniture_decor) represent the highest freight expenditure on late orders.
 WITH late_orders AS (
 SELECT order_id
 FROM olist_orders_dataset
 WHERE order_delivered_customer_date > order_estimated_delivery_date
   AND order_status = 'delivered'
 )
-SELECT prodt.product_category_name_english, COUNT(items.order_item_id) as total_late_items, ROUND(SUM(items.freight_value), 2) as total_freight_spent
+SELECT prodt.product_category_name_english, 
+	COUNT(items.order_item_id) as total_late_items, 
+	ROUND(SUM(items.freight_value), 2) as total_freight_spent
 FROM late_orders as ord
 INNER JOIN olist_order_items_dataset as items
 	ON ord.order_id = items.order_id
@@ -124,7 +130,9 @@ LIMIT 5;
 
 -- Q5: What is the exact review score distribution for late deliveries?
 -- Insight: 50% of all delayed orders receive a 1-star review; 60% are negative (1 or 2 stars)
-SELECT review_score, COUNT(review_score) as total_reviews, ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 1) as pct_of_total
+SELECT review_score, 
+	COUNT(review_score) as total_reviews, 
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 1) as pct_of_total
 FROM olist_orders_dataset as ord
 INNER JOIN olist_order_reviews_dataset as rev
 	ON ord.order_id = rev.order_id
@@ -133,7 +141,7 @@ WHERE order_delivered_customer_date > order_estimated_delivery_date
 GROUP BY rev.review_score
 ORDER BY rev.review_score ASC;
 
--- Q6: How long do delivery times affect repeat purchases? 
+-- Q6: How long do delivery times affect repeat purchases? The link between delays and customer loyalty can be huge.
 -- Insight: Customers whose first order arrived on-time converted to repeat buyers at 3.04%, compared to just 2.50% for those who experienced a late first delivery representing an 18% relative drop in customer retention due to initial fulfillment failures.
 
 WITH customer_first_orders AS (
@@ -156,7 +164,11 @@ customer_order_counts AS (
     WHERE ord.order_status = 'delivered'
     GROUP BY cus.customer_unique_id
 )
-SELECT fo.first_order_status, COUNT(fo.customer_unique_id) AS total_customers, SUM(CASE WHEN co.total_orders > 1 THEN 1 ELSE 0 END) AS repeat_customers, ROUND(SUM(CASE WHEN co.total_orders > 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(fo.customer_unique_id), 2) AS repeat_purchase_rate_pct
+SELECT 
+	fo.first_order_status, 
+	COUNT(fo.customer_unique_id) AS total_customers, 
+	SUM(CASE WHEN co.total_orders > 1 THEN 1 ELSE 0 END) AS repeat_customers, 
+    ROUND(SUM(CASE WHEN co.total_orders > 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(fo.customer_unique_id), 2) AS repeat_purchase_rate_pct
 FROM customer_first_orders as fo
 INNER JOIN customer_order_counts as co
     ON fo.customer_unique_id = co.customer_unique_id
