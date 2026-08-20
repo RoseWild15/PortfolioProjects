@@ -44,7 +44,7 @@ Data Source: https://www.kaggle.com/datasets/agungpambudi/trends-product-coffee-
 
 • Engineered time-formatting and categorisation helper columns to enable precise granular grouping by hour of day, day of week, and transaction month.
 
-### Dashboard Design & Architecture
+## Dashboard Design & Architecture
 
 Designed an executive-grade, interactive business intelligence dashboard inside Microsoft Excel, optimised for visual hierarchy and user experience:
 
